@@ -1,0 +1,13 @@
+ul {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    list-style-type: none;
+  }
+  li {
+    background: #4A4E69;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }

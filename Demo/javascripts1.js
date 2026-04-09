@@ -89,3 +89,8 @@ console.log(typeof myNum);
 const myNum2 = 123;
 const myString2 = String(myNum2);
 console.log(typeof myString2);
+
+/* JavaScript String Length */
+
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.getElementById("demo").innerHTML = text.length;
