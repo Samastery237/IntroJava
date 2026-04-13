@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Square Finder</title>
+  <style>
+    body { font-family: 'Inter', sans-serif; padding: 20px; line-height: 1.6; }
+    .controls { margin-bottom: 20px; }
+    input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 200px; }
+    button { padding: 8px 16px; background-color: #0b5ed7; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #0947a6; }
+    p { font-weight: bold; font-size: 1.2rem; color: #333; word-wrap: break-word; }
+  </style>
+</head>
+<body>
+
+  <h1>Find Perfect Squares</h1>
+  <p>Enter a number to find all perfect squares up to that limit.</p>
+
+  <div class="controls">
+    <label for="numberInput">Enter limit: </label>
+    <input type="number" id="numberInput" placeholder="e.g. 100">
+    <button id="generateBtn">Generate</button>
+  </div>
+
+  <p id="output">Output: </p>
+  <script src="javascripts.js"></script>
+
+</body>
+</html>
