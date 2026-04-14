@@ -154,3 +154,34 @@ fruits16 === fruitsAlias; // true
 fruits.unshift("Apple", "Banana");
 console.log(fruits16);
 console.log(fruitsAlias);
+
+/* Using an array to tabulate a set of values */
+
+const values = [];
+for (let x = 0; x < 10; x++) {
+    values.push([2 ** x, 2 * x ** 2]);
+};
+
+console.table(values);
+
+/* Creating an array using the result of a match */
+
+const myRe = /d(b+)(d)/i;
+const execResult = myRe.exec("cdbBdbsbz");
+
+console.log(execResult.input); 
+console.log(execResult.index);
+console.log(execResult);
+
+/* Mutating initial array in iterative methods */
+
+testSideEffect((arr, index) => {
+  if (index === 1) arr.splice(2, 1);
+});
+
+const arr2 = ["e1", "e2", "e3", "e4"];
+arr2.find((elem, index, arr) => {
+  console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+  if (index === 1) arr.splice(2, 1);
+  return false;
+});
