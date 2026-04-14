@@ -1,43 +1,44 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewpoint" content="width=device-width", initial-scale="1.0">
-        <title>Interative Testing</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping List Test</title>
     <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        ul {
-            list-style-type: square;
-            color: #2c3e50;
-        }
-        li {
-            margin-bottom: 5px;
-        }
-        code {
-            background: #f4f4f4;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background-color: #f0f2f5; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 300px; }
+        h2 { margin-top: 0; color: #1a1a1a; }
+        ul { padding-left: 20px; }
+        li { margin: 8px 0; color: #444; font-weight: 500; }
     </style>
-    </head>
+</head>
 <body>
-    <div class="container">
+
+    <div class="card">
         <h2>Shopping List</h2>
         <p>Generated using <code>method()</code>:</p>
-        <ul id="output"></ul>    
+        <ul id="output"></ul>
     </div>
 
-    <scripts src="javascripts.js"></scripts>
+    <script>
+        Array.prototype.method = function(callbackFn, thisArg) {
+            const length = this.length;
+            for (let i = 0; i < length; i++) {
+                if (i in this) {
+                    callbackFn.call(thisArg, this[i], i, this);
+                }
+            }
+        };
+
+        const shoppingItems = ["Milk", "Eggs", "Bread", "Cheese"];
+  
+        const list = document.getElementById('output');
+
+        shoppingItems.method(function(item, index) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            list.appendChild(li);
+        });
+    </script>
+
 </body>
 </html>

@@ -175,13 +175,11 @@ console.log(execResult);
 
 /* Mutating initial array in iterative methods */
 
-testSideEffect((arr, index) => {
-  if (index === 1) arr.splice(2, 1);
-});
-
-const arr2 = ["e1", "e2", "e3", "e4"];
-arr2.find((elem, index, arr) => {
-  console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
-  if (index === 1) arr.splice(2, 1);
-  return false;
-});
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+}
